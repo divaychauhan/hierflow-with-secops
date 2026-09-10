@@ -3,7 +3,7 @@ FROM node:22-alpine
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN npm cache clean --force && npm install
 
 # Fix CVE-2026-73566: Update tar to patched version
 RUN npm update tar --save
