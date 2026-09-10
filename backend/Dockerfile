@@ -5,6 +5,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+# Fix CVE-2026-73566: Update tar to patched version
+RUN npm update tar --save
+
 COPY . .
 
 EXPOSE 3000
